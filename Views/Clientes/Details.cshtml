@@ -1,0 +1,39 @@
+@model assetsment_Celsia.Models.Client
+
+<div class="card mt-4">
+    <div class="card-body">
+        <form asp-action="EditUser" asp-controller="Clientes" method="post">
+
+
+            <div class="mb-3">
+                <label for="Name" class="form-label">Id</label>
+                <input readonly name="Id" value="@Model.Id" class="form-control" />
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input readonly class="form-control" id="Name" name="Name" value="@Model.Name">
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Address</label>
+                <input readonly class="form-control" id="Address" name="Address" value="@Model.Address">
+                @Html.ValidationMessageFor(model => model.Address)
+            </div>
+            <div class="mb-3">
+                <label for="Phone" class="form-label">Phone</label>
+                <input readonly class="form-control" id="Phone" name="Phone" value="@Model.Phone">
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email</label>
+                <input readonly class="form-control" id="Email" name="Email" value="@Model.Email">
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div>
+                <a asp-action="Index" asp-controller="Clientes" class="btn btn-secondary ml-2"
+                    style="margin-top: 15px;">Return</a>
+            </div>
+        </form>
+    </div>
+</div>

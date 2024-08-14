@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <script src="~/js/assets/head.js"></script>
+    <link rel="stylesheet" href="~/css/assets/bootstrap.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link rel="stylesheet" href="~/css/assets/app.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/css/assets/icons.min.css" rel="stylesheet" type="text/css" />
+
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+    @if (ViewContext.ActionDescriptor.RouteValues["action"] != "Signin" &&
+    ViewContext.ActionDescriptor.RouteValues["action"] != "Create")
+    {
+        <div id="wrapper">
+            @await Html.PartialAsync("~/Views/Shared/Components/aside.cshtml")
+            <div class="content-page">
+                @await Html.PartialAsync("~/Views/Shared/Components/nav.cshtml")
+                <div class="content">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </div>
+                @await Html.PartialAsync("~/Views/Shared/Components/footer.cshtml")
+            </div>
+        </div>
+        @await Html.PartialAsync("~/Views/Shared/Components/aside2.cshtml")
+    }
+    else
+    {
+
+        @RenderBody()
+
+    }
+
+    <script src="~/js/assets/vendor.min.js"></script>
+    <script src="~/js/assets/app.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

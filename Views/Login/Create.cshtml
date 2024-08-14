@@ -1,0 +1,36 @@
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="containerLogin">
+    <div class="screen">
+        <div class="screen__content">
+            <form class="login" asp-action="CreateAdministrador" asp-controller="Login" method="post">
+
+                <!-- Mostrar el mensaje de error si existe -->
+                @if (ViewData.ModelState.ContainsKey("") && ViewData.ModelState[""].Errors.Count > 0)
+                {
+                    <div id="errorMessage" class="error-message">
+                        <span>@ViewData.ModelState[""].Errors[0].ErrorMessage</span>
+                    </div>
+                }
+
+                <div class="login__field">
+                    <input type="text" class="login__input" placeholder="Email" id="email" name="Email">
+                </div>
+                <div class="login__field">
+                    <input type="password" class="login__input" placeholder="Password" id="password" name="Password">
+                </div>
+                <button class="button login__submit" type="submit">Create account</button>
+                <button class="button login__submit" asp-action="Signin" asp-controller="Login">Return back</button>
+            </form>
+        </div>
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape3"></span>
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>

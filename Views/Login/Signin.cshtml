@@ -1,0 +1,37 @@
+@section Styles {
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="containerLogin">
+    <div class="screen">
+
+        <div class="screen__content">
+            <form class="login" asp-action="SigninUser" asp-controller="Login">
+                <div class="login__field">
+                    <input type="text" class="login__input" placeholder="Email" id="email" name="email">
+                </div>
+                <div class="login__field">
+                    <input type="password" class="login__input" placeholder="Password" id="password" name="password">
+                </div>
+
+                <button class="button login__submit">Login</button>
+                <button class="button login__submit" asp-action="Create" asp-controller="Login">New account</button>
+
+            </form>
+        </div>
+        @if (TempData["errorMessage"] != null)
+        {
+            <div class="alert alert-danger mt-2">
+                <p class="d-flex justify-content-center align-items-center"> @TempData["errorMessage"]</p>
+            </div>
+        }
+        <div class="screen__background">
+
+            <span class="screen__background__shape screen__background__shape3"></span>
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>
